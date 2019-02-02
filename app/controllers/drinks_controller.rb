@@ -3,11 +3,26 @@ class DrinksController < ApplicationController
 
   def index
     if params[:filter] == '4+ ingredients'
-      @drinks = Drink.complex
+			@drinks = Drink.complex
+			respond_to do |f|
+				f.html {render :index}
+				f.json {render json: @drinks}
+			end
+			
     elsif params[:filter] == '3 or less ingredients'
       @drinks = Drink.simple
+			respond_to do |f|
+				f.html {render :index}
+				f.json {render json: @drinks}
+			end
+
     else
-      @drinks = Drink.all
+			@drinks = Drink.all
+			respond_to do |f|
+				f.html {render :index}
+				f.json {render json: @drinks}
+			end
+
     end
   end
 

@@ -5,8 +5,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
@@ -22,7 +22,7 @@
 
         <% if session[:user_id] %>
           <%= link_to 'Your Profile', user_path(current_user), class:'navbar-brand' %>
-          <%= link_to 'Drink Index', drinks_path, class:'navbar-brand' %>
+          <%= link_to 'Drink Index', drinks_path, class:'navbar-brand', id: 'drinks-index' %>
           <%= link_to 'Ingredient Index', ingredients_path, class:'navbar-brand' %>
           <%= link_to 'Log Out', logout_path, class:'navbar-brand'%>
 
@@ -40,6 +40,13 @@
 
       </div>
     </div>
+
+		<br />
+		<br />
+		<br />
+		<br />
+		<div id="ajax-data">********** DUMMY DATA **********</div>
+
 
     <div class='container' role='main'>
 
